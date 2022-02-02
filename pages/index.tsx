@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import Link from "components/Link/Link";
 import Image from "components/Image/Image";
+import { FaWifi } from "react-icons/fa";
 
 const HomePage: NextPage = () => {
   return (
@@ -9,7 +10,7 @@ const HomePage: NextPage = () => {
       <Header />
 
       <Flex minH="400px" gridGap="7rem" paddingTop={10}>
-        <Box width="400px">
+        <Box width="450px">
           <Heading as="h1" fontSize="2xl" mb={3}>
             Payment Information
           </Heading>
@@ -18,18 +19,73 @@ const HomePage: NextPage = () => {
             Choose your method of payment.
           </Text>
 
-          <Box
-            data-testid="card-view"
-            border="1px"
-            width="400px"
-            height="300px"
-            overflow="hidden"
-            rounded="lg"
-          ></Box>
+          <CardView />
         </Box>
 
         <Box border="1px" flex={1}></Box>
       </Flex>
+    </Box>
+  );
+};
+
+const CardView = () => {
+  return (
+    <Box
+      data-testid="card-view"
+      width="450px"
+      height="300px"
+      overflow="hidden"
+      rounded="lg"
+      bgGradient="linear(to-l, #7928CA, #FF0080)"
+      color="white"
+      position="relative"
+      paddingY={8}
+    >
+      <Stack paddingLeft={9} spacing={4}>
+        <Text fontWeight="600" fontSize="10px" letterSpacing="3px">
+          CARD NUMBER
+        </Text>
+        <Text fontWeight="600" fontSize="13px" letterSpacing="3px">
+          4324 5433 9382 1030
+        </Text>
+      </Stack>
+
+      <Flex alignItems="center">
+        <Box transform={"rotate(90deg) translate(5px, -15px)"} fontSize="20px">
+          <FaWifi />
+        </Box>
+
+        <Image
+          h="100px"
+          w="100px"
+          src="/card-circuit.png"
+          alt="card-circuit"
+          objectFit="contain"
+        />
+      </Flex>
+
+      <Stack paddingLeft={9} spacing={3}>
+        <Text fontWeight="600" fontSize="10px" letterSpacing="3px">
+          EXPIRATION DATE
+        </Text>
+        <Text fontWeight="600" fontSize="13px" letterSpacing="3px" pb={2}>
+          03 / 24
+        </Text>
+
+        <Text fontWeight="600" fontSize="14px" letterSpacing="3px">
+          John Doe
+        </Text>
+      </Stack>
+
+      <Image
+        h="100px"
+        w="100px"
+        src="/mastercard-logo.png"
+        alt="mastercard-logo"
+        position="absolute"
+        bottom={0}
+        right={8}
+      ></Image>
     </Box>
   );
 };
