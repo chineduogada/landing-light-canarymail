@@ -1,12 +1,35 @@
 import type { NextPage } from "next";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "components/Link/Link";
 import Image from "components/Image/Image";
 
 const HomePage: NextPage = () => {
   return (
-    <Box maxWidth="900px" marginX="auto" p={10}>
+    <Box maxWidth="1280px" marginX="auto" p={10}>
       <Header />
+
+      <Flex minH="400px" gridGap="7rem" paddingTop={10}>
+        <Box width="400px">
+          <Heading as="h1" fontSize="2xl" mb={3}>
+            Payment Information
+          </Heading>
+
+          <Text opacity={0.8} fontSize="sm" mb={10}>
+            Choose your method of payment.
+          </Text>
+
+          <Box
+            data-testid="card-view"
+            border="1px"
+            width="400px"
+            height="300px"
+            overflow="hidden"
+            rounded="lg"
+          ></Box>
+        </Box>
+
+        <Box border="1px" flex={1}></Box>
+      </Flex>
     </Box>
   );
 };
@@ -19,7 +42,12 @@ const Header = () => {
   ];
 
   return (
-    <Flex justifyContent="flex-end">
+    <Flex
+      justifyContent="flex-end"
+      paddingBottom={20}
+      borderBottom="1px"
+      borderColor="accent.5"
+    >
       <nav>
         <Flex alignItems="center" as="ul" listStyleType={"none"} gridGap="10">
           {list.map((item) => (
