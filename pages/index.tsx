@@ -1,15 +1,34 @@
 import type { NextPage } from "next";
-import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  FormLabel,
+  Grid,
+  GridItem,
+  Heading,
+  HStack,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import Link from "components/Link/Link";
 import Image from "components/Image/Image";
 import { FaWifi } from "react-icons/fa";
+import Input from "components/Form/Input";
+import Button from "components/Button/Button";
 
 const HomePage: NextPage = () => {
   return (
     <Box maxWidth="1280px" marginX="auto" p={10}>
       <Header />
 
-      <Flex minH="400px" gridGap="7rem" paddingTop={10}>
+      <Flex
+        minH="400px"
+        gridGap="7rem"
+        paddingTop={10}
+        borderBottom="1px"
+        borderColor="accent.5"
+        pb={10}
+      >
         <Box width="450px">
           <Heading as="h1" fontSize="2xl" mb={3}>
             Payment Information
@@ -22,7 +41,114 @@ const HomePage: NextPage = () => {
           <CardView />
         </Box>
 
-        <Box border="1px" flex={1}></Box>
+        <Box flex={1}>
+          <Flex
+            justifyContent="flex-end"
+            alignItems="center"
+            gridGap={10}
+            marginTop={-9}
+          >
+            <HStack spacing={4} pr={5}>
+              <Image h="40px" w="40px" src="/visa-logo.png" alt="visa logo" />
+
+              <Image
+                h="40px"
+                w="40px"
+                src="/discover-logo.png"
+                alt="discover logo"
+              />
+            </HStack>
+
+            <HStack>
+              <input type="radio" checked={false} />
+
+              <Image
+                h="100px"
+                w="100px"
+                src="/paypal-logo.png"
+                alt="paypal logo"
+              />
+            </HStack>
+          </Flex>
+
+          <Box as="form">
+            <Grid templateColumns={"1fr 1fr"} gridGap={10} as="form" mb={10}>
+              <Box>
+                <FormLabel htmlFor="card-number">Credit card number</FormLabel>
+                <Input id="card-number" />
+              </Box>
+
+              <Box>
+                <FormLabel htmlFor="expiration-date">Expiration date</FormLabel>
+                <Input id="expiration-date" />
+              </Box>
+
+              <Box>
+                <FormLabel htmlFor="security-code">Security code</FormLabel>
+                <Input id="security-code" />
+              </Box>
+
+              <Box>
+                <FormLabel htmlFor="postal-code">Postal code</FormLabel>
+                <Input id="postal-code" />
+              </Box>
+
+              <GridItem colSpan={2} d="flex" alignItems="center" gridGap={5}>
+                <input id="use-card" type="radio" />
+                <FormLabel m={0} htmlFor="use-card">
+                  Use this card for next time purchase
+                </FormLabel>
+              </GridItem>
+            </Grid>
+
+            <Button type="submit" width="100%">
+              Add card
+            </Button>
+          </Box>
+        </Box>
+      </Flex>
+
+      <Stack borderBottom="1px" borderColor="accent.5" py={10}>
+        <Flex justifyContent="space-between">
+          <Text fontSize="xl" fontWeight="bold">
+            Subtotal
+          </Text>
+
+          <Text fontSize="xl" fontWeight="bold">
+            ₦2,497.00
+          </Text>
+        </Flex>
+
+        <Flex justifyContent="space-between">
+          <Text fontSize="xl" fontWeight="bold">
+            Estimated TAX
+          </Text>
+
+          <Text fontSize="xl" fontWeight="bold">
+            ₦119.64
+          </Text>
+        </Flex>
+
+        <Flex justifyContent="space-between">
+          <Text fontSize="xl" fontWeight="bold">
+            Promotional Code:{" "}
+            <Text as="span" opacity={0.7}>
+              Z4KXLM9A
+            </Text>
+          </Text>
+
+          <Text fontSize="xl" fontWeight="bold">
+            ₦-60.00
+          </Text>
+        </Flex>
+      </Stack>
+
+      <Flex justifyContent="space-between" pt={10}>
+        <Button>Complete payment</Button>
+
+        <Text fontSize="2xl" fontWeight="bold">
+          TOTAL: ₦2556.64
+        </Text>
       </Flex>
     </Box>
   );
@@ -36,10 +162,13 @@ const CardView = () => {
       height="300px"
       overflow="hidden"
       rounded="lg"
-      bgGradient="linear(to-l, #7928CA, #FF0080)"
       color="white"
       position="relative"
       paddingY={8}
+      style={{
+        backgroundImage:
+          "linear-gradient(45deg, rgb(208 81 48), rgb(101 78 237))",
+      }}
     >
       <Stack paddingLeft={9} spacing={4}>
         <Text fontWeight="600" fontSize="10px" letterSpacing="3px">

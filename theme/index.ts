@@ -3,13 +3,11 @@ import { createBreakpoints } from "@chakra-ui/theme-tools";
 import colors from "./colors";
 import font from "./font";
 import breakpoints from "./breakpoints";
-import components from "./components";
 
 const theme = extendTheme({
   fonts: font.family,
   colors,
   breakpoints: createBreakpoints(breakpoints),
-  components,
 
   styles: {
     global: {

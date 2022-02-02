@@ -31,4 +31,19 @@ describe("HomePage", () => {
     ).toBeInTheDocument();
     expect(screen.getByTestId("card-view")).toBeInTheDocument();
   });
+
+  it("renders checkout card form correctly", () => {
+    setup();
+
+    expect(screen.getByLabelText(/credit card number/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/expiration date/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/security code/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/postal code/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/use this card for next time purchase/i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /add card/i })
+    ).toBeInTheDocument();
+  });
 });
