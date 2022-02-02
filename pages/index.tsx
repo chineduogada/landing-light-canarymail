@@ -9,6 +9,8 @@ import {
   HStack,
   Stack,
   Text,
+  toast,
+  useToast,
 } from "@chakra-ui/react";
 import Link from "components/Link/Link";
 import Image from "components/Image/Image";
@@ -17,6 +19,18 @@ import Input from "components/Form/Input";
 import Button from "components/Button/Button";
 
 const HomePage: NextPage = () => {
+  const toast = useToast();
+
+  const handleSubmit = () => {
+    toast({
+      title: "Card Updated.",
+      description: "We've added your card for you.",
+      status: "success",
+      duration: 8000,
+      isClosable: true,
+    });
+  };
+
   return (
     <Box maxWidth="1280px" marginX="auto" p={10}>
       <Header />
@@ -71,30 +85,30 @@ const HomePage: NextPage = () => {
             </HStack>
           </Flex>
 
-          <Box as="form">
-            <Grid templateColumns={"1fr 1fr"} gridGap={10} as="form" mb={10}>
+          <Box as="form" onSubmit={handleSubmit}>
+            <Grid templateColumns={"1fr 1fr"} gridGap={10} mb={10}>
               <Box>
-                <FormLabel htmlFor="card-number">Credit card number</FormLabel>
-                <Input id="card-number" />
+                <FormLabel htmlFor="cardNumber">Credit card number</FormLabel>
+                <Input id="cardNumber" value="4324 5433 9382 1030" />
               </Box>
 
               <Box>
                 <FormLabel htmlFor="expiration-date">Expiration date</FormLabel>
-                <Input id="expiration-date" />
+                <Input id="expiration-date" value="03/24" />
               </Box>
 
               <Box>
                 <FormLabel htmlFor="security-code">Security code</FormLabel>
-                <Input id="security-code" />
+                <Input id="security-code" value="420" />
               </Box>
 
               <Box>
                 <FormLabel htmlFor="postal-code">Postal code</FormLabel>
-                <Input id="postal-code" />
+                <Input id="postal-code" value="10119" />
               </Box>
 
               <GridItem colSpan={2} d="flex" alignItems="center" gridGap={5}>
-                <input id="use-card" type="radio" />
+                <input id="use-card" type="radio" checked />
                 <FormLabel m={0} htmlFor="use-card">
                   Use this card for next time purchase
                 </FormLabel>
