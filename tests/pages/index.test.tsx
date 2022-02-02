@@ -14,5 +14,9 @@ describe("HomePage", () => {
     navList.forEach((item) => {
       expect(screen.getByText(item)).toBeInTheDocument();
     });
+
+    expect(
+      screen.getByRole("img", { name: "user-avatar" })
+    ).toBeInTheDocument();
   });
 });
