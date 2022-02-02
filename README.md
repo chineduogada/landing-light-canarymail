@@ -34,4 +34,4 @@ yarn test
 
 ## View App in Production
 
-Here is the production link to this [Data Table App](https://landing-light-canarymail.vercel.app/) project.
+Here is the production link to this [Landing Light App](https://landing-light-canarymail.vercel.app/) project.
