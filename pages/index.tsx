@@ -28,8 +28,15 @@ const Header = () => {
                 display="block"
                 padding={3}
                 href="#"
+                borderBottom="2px"
+                borderColor="transparent"
                 _hover={{
                   textDecoration: "none",
+                  borderColor: "primary.base",
+                }}
+                _focus={{
+                  outline: "none",
+                  borderColor: "primary.base",
                 }}
                 opacity={0.9}
               >
