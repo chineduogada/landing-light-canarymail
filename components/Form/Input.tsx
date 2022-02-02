@@ -7,8 +7,13 @@ type Props = {
 
 const Input = forwardRef(({ ...rest }: Props, ref) => (
   <__Input
-    size="sm"
+    size="lg"
+    bg="accent.1"
     rounded="4px"
+    _focus={{
+      outline: "none",
+      bg: "white",
+    }}
     ref={ref as LegacyRef<HTMLInputElement> | undefined}
     {...rest}
   />

@@ -8,7 +8,17 @@ type Props = {
 };
 
 const Button = ({ children, primary, tabItem, ...rest }: Props) => (
-  <__Button size="sm" variant={tabItem ? "tab-item" : "base"} {...rest}>
+  <__Button
+    py={8}
+    px={10}
+    color="white"
+    bg="primary.base"
+    fontWeight="400"
+    _hover={{
+      opacity: 0.8,
+    }}
+    {...rest}
+  >
     {children}
   </__Button>
 );

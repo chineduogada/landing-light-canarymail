@@ -1,6 +1,6 @@
 const colors = {
   primary: {
-    base: "#40BFFF",
+    base: "#035cdc",
   },
   accent: {
     "1": "#F8F8F8",
@@ -10,9 +10,8 @@ const colors = {
     "5": "#E0E0E0",
     "6": "#F46040",
   },
-  red: "#FF6774",
-  green: "#68F687",
-  // blue: "#40BFFF",
+  danger: "#FF6774",
+  success: "#68F687",
   yellow: "#F4DF65",
   black: "#000000",
   black2: "#ddd",
