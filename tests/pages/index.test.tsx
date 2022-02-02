@@ -1,4 +1,4 @@
-import { render, screen } from "../utils/test-utils";
+import { render, screen, user } from "../utils/test-utils";
 import HomePage from "pages/index";
 
 const setup = () => {
@@ -42,8 +42,12 @@ describe("HomePage", () => {
     expect(
       screen.getByText(/use this card for next time purchase/i)
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: /add card/i })
-    ).toBeInTheDocument();
+
+    const submit = screen.getByRole("button", { name: /add card/i });
+
+    expect(submit).toBeInTheDocument();
+
+    user.click(submit);
+    expect(screen.getByText(/card updated/i)).toBeInTheDocument();
   });
 });

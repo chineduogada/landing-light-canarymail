@@ -21,7 +21,10 @@ import Button from "components/Button/Button";
 const HomePage: NextPage = () => {
   const toast = useToast();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    toast.closeAll();
     toast({
       title: "Card Updated.",
       description: "We've added your card for you.",
@@ -122,7 +125,7 @@ const HomePage: NextPage = () => {
         </Box>
       </Flex>
 
-      <Stack borderBottom="1px" borderColor="accent.5" py={10}>
+      <Stack spacing={5} borderBottom="1px" borderColor="accent.5" py={10}>
         <Flex justifyContent="space-between">
           <Text fontSize="xl" fontWeight="bold">
             Subtotal
