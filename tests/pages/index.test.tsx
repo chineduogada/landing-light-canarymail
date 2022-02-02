@@ -6,12 +6,13 @@ const setup = () => {
 };
 
 describe("HomePage", () => {
-  it("renders page heading", () => {
+  it("renders page Header Navbar correctly", () => {
     setup();
-    expect(
-      screen.getByRole("heading", {
-        name: /hi there/i,
-      })
-    ).toBeInTheDocument();
+
+    const navList = ["TRIPS", "RECENTLY", "VIEWED BOOKINGS"];
+
+    navList.forEach((item) => {
+      expect(screen.getByText(item)).toBeInTheDocument();
+    });
   });
 });
