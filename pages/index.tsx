@@ -9,7 +9,6 @@ import {
   HStack,
   Stack,
   Text,
-  toast,
   useToast,
 } from "@chakra-ui/react";
 import Link from "components/Link/Link";
